@@ -1,5 +1,6 @@
 #pragma once
 #include <unistd.h>
+#include <cstdlib>
 #include "error.h"
 #include "define.h"
 char readKey(){
@@ -18,4 +19,14 @@ void processKey(){
             exit(0);
             break;        
     }
+}
+
+void refreshScreen(){
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+
+    
 }
