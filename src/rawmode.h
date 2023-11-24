@@ -1,6 +1,4 @@
 #pragma once
-#include <stdlib.h>
-#include <errno.h>   // error detection
 #include <unistd.h>  // syscalls
 #include <termios.h> // terminal I/O interface
 #include "error.h"
