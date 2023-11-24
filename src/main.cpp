@@ -1,6 +1,6 @@
 #include <iostream>
 #include "rawmode.h"
-
+#include "define.h"
 int main(){
     enableRawMode();
 
@@ -15,11 +15,10 @@ int main(){
         else{
             std::cout << int(c) << " (" << c << ")" << "\r\n";
         }
-        if(int(c) == 24){
+        if(int(c) == CTRL_X){
             break;
         }
     }
-    std::cout<<"bye bye\n";
     atexit(disableRawMode);
     return 0;
 }
