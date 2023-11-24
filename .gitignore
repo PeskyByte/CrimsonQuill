@@ -80,4 +80,8 @@ _deps
 ### CMake Patch ###
 # External projects
 *-prefix
+
+### Directory ###
 build/
+/build
+/build/
