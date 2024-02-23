@@ -3,3 +3,4 @@
 char readKey();
 void processKey();
 void refreshScreen();
+void drawRows();

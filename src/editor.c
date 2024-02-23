@@ -2,8 +2,12 @@
 #include <unistd.h>
 #include <errno.h>
 #include <stdlib.h>
+
 #include "editor.h"
+#include "cursor.h"
+
 #include "define.h"
+
 #include "error.h"
 
 char readKey(){
@@ -21,9 +25,15 @@ void processKey(){
     switch(c){
         case CTRL_Q:
             write(STDOUT_FILENO, "\x1b[2J", 4);
-            write(STDOUT_FILENO, "\x1b[H", 3);
+            moveCursorToTopLeft();
             exit(0);
             break;
+    }
+}
+
+void drawRows(){
+    for(int y = 0; y < 24;y++){
+        write(STDOUT_FILENO, "~\r\n", 3);
     }
 }
 
@@ -34,8 +44,8 @@ void refreshScreen(){
     // \x1b -> escape char (27), [ -> escape sequence, J -> command to clear screen
     // 2 -> argument for J to clear entire screen
 
-    write(STDOUT_FILENO, "\x1b[H", 3);
-    // reposition cursor to (1,1)
+    moveCursorToTopLeft();
 
-
+    drawRows();
+    moveCursorToTopLeft();
 }
