@@ -14,6 +14,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_BINARY_DIR build)
 set(CMAKE_SOURCE_DIR src)
 
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -pedantic -std=c99")
+
 file(GLOB_RECURSE SRC_FILES ${CMAKE_SOURCE_DIR}/*.c)
 add_executable(${NAME} ${SRC_FILES})
 
